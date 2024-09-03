@@ -11,6 +11,7 @@ fun main() {
     val busca = leitura.nextLine()
 
     val buscaApi = ConsumoApi()
+
     val infoJogo = buscaApi.buscaJogo(busca)
 
 
