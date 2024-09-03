@@ -1,5 +1,6 @@
 package br.com.felipe.modelo
 
+import java.util.Scanner
 import kotlin.random.Random
 
 data class Gamer(var nome: String, var email: String) {
@@ -14,6 +15,8 @@ data class Gamer(var nome: String, var email: String) {
     var idInterno: String? = null
         private set
 
+    val jogosBuscados = mutableListOf<Jogo?>()
+
     constructor(nome: String, email: String, dataNascimento: String, usuario: String) :
             this(nome, email) {
         this.dataNascimento = dataNascimento
@@ -21,12 +24,12 @@ data class Gamer(var nome: String, var email: String) {
         criarIdInterno()
     }
 
-    init {
-        if (nome.isNullOrBlank()){
-            throw IllegalArgumentException("Nome inválido.")
-        }
-        this.email = validarEmail()
-    }
+//    init {
+//        if (nome.isNullOrBlank()){
+//            throw IllegalArgumentException("Nome inválido.")
+//        }
+//        this.email = validarEmail()
+//    }
 
     override fun toString(): String {
         return "Gamer(nome='$nome', email='$email', dataNascimento=$dataNascimento, " +
@@ -46,6 +49,28 @@ data class Gamer(var nome: String, var email: String) {
             return email
         } else {
             throw IllegalArgumentException("Email inválido")
+        }
+    }
+
+    companion object {
+        fun criarGamer(leitura: Scanner): Gamer {
+            println("Boas vindas ao AluGames! Vamos fazer seu cadastro. Digite seu nome:")
+            val nome = leitura.nextLine()
+            println("Digite seu e-mail:")
+            val email = leitura.nextLine()
+            println("Deseja completar seu cadastro com usuário e data de nascimento? (S/N)")
+            val opcao = leitura.nextLine()
+
+            if (opcao.equals("s", true)) {
+                println("Digite sua data de nascimento(DD/MM/AAAA):")
+                val nascimento = leitura.nextLine()
+                println("Digite seu nome de usuário:")
+                val usuario = leitura.nextLine()
+
+                return Gamer(nome, email, nascimento, usuario)
+            } else {
+                return Gamer(nome, email)
+            }
         }
     }
 
