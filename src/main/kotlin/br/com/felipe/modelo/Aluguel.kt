@@ -1,11 +1,15 @@
 package br.com.felipe.modelo
 
+import java.time.LocalDate
+import java.time.Period
+
 data class Aluguel(
     val gamer:Gamer,
-    val jogo:Jogo) {
+    val jogo:Jogo,
+    val periodo: Periodo) {
 
-
+    val valorDoAlugel = jogo.preco * periodo.emDias
     override fun toString(): String {
-        return "Aluguel do $jogo por $gamer"
+        return "Aluguel do ${jogo.titulo} por ${gamer.nome}, pelo valor de R$$valorDoAlugel"
     }
 }
