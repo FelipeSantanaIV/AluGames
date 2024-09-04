@@ -24,12 +24,12 @@ data class Gamer(var nome: String, var email: String) {
         criarIdInterno()
     }
 
-//    init {
-//        if (nome.isNullOrBlank()){
-//            throw IllegalArgumentException("Nome inválido.")
-//        }
-//        this.email = validarEmail()
-//    }
+    init {
+        if (nome.isNullOrBlank()){
+            throw IllegalArgumentException("Nome inválido.")
+        }
+        this.email = validarEmail()
+    }
 
     override fun toString(): String {
         return "Gamer(nome='$nome', email='$email', dataNascimento=$dataNascimento, " +
@@ -50,6 +50,10 @@ data class Gamer(var nome: String, var email: String) {
         } else {
             throw IllegalArgumentException("Email inválido")
         }
+    }
+
+    fun alugaJogo(jogo: Jogo): Aluguel {
+        return Aluguel(this, jogo)
     }
 
     companion object {

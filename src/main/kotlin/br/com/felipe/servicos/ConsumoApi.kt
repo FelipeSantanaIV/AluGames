@@ -2,6 +2,7 @@ package br.com.felipe.servicos
 
 import br.com.felipe.modelo.*
 import br.com.felipe.utilitario.criaGamer
+import br.com.felipe.utilitario.criaJogo
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import java.net.URI
@@ -38,7 +39,7 @@ class ConsumoApi {
             InfoJogo(
                info = InfoApiShark(
                    title = "Jogo não encontrado",
-                   thumb = ""
+                   thumb = "Imagem não encontrada."
                )
             )
         }
@@ -58,5 +59,18 @@ class ConsumoApi {
 
         return listaGamerConvertida
 
+    }
+
+    fun buscaJogosJson(): List<Jogo> {
+        val endereco = "https://raw.githubusercontent.com/jeniblodev/arquivosJson/main/jogos.json"
+        val json = consomeDados(endereco)
+
+        val gson = Gson()
+        val meuJogoTipo = object : TypeToken<List<InfoJogoJson>>() {}.type
+        val listaJogo: List<InfoJogoJson> = gson.fromJson(json, meuJogoTipo)
+
+        val listaJogoConvertida = listaJogo.map { infoJogoJson -> infoJogoJson.criaJogo() }
+
+        return listaJogoConvertida
     }
 }

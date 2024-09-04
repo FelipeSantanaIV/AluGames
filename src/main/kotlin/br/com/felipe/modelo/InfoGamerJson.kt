@@ -7,4 +7,5 @@ data class InfoGamerJson (
     val usuario:String) {
 
 
+
 }
