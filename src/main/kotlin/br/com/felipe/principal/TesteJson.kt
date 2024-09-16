@@ -36,11 +36,19 @@ fun main() {
 //    println(gamerAna.jogosDoMes(9))
 
     val gamerCamila  = listaGamers.get(5)
-    gamerCamila.plano = PlanoAssinatura("PRATA", 9.90, 3)
+    gamerCamila.plano = PlanoAssinatura("PRATA", 9.90, 3, 0.15)
 
     gamerCamila.alugaJogo(jogoResidentEvilVillage, periodo)
     gamerCamila.alugaJogo(jogoSpider, periodo1)
     gamerCamila.alugaJogo(jogoTheLastOfUs, periodo2)
     gamerCamila.alugaJogo(jogoTheLastOfUs, periodo2)
+    println(gamerCamila.jogoAlugados)
+
+    gamerCamila.recomendar(0)
+    gamerCamila.recomendar(10)
+    gamerCamila.recomendar(8)
+    println(gamerCamila)
+
+    gamerCamila.alugaJogo(jogoResidentEvilVillage, periodo)
     println(gamerCamila.jogoAlugados)
 }
