@@ -1,6 +1,7 @@
 package br.com.felipe.principal
 
 import br.com.felipe.modelo.Periodo
+import br.com.felipe.modelo.PlanoAssinatura
 import br.com.felipe.servicos.ConsumoApi
 import java.time.LocalDate
 
@@ -17,8 +18,8 @@ fun main() {
     val jogoSpider = listaJogoJson.get(13)
     val jogoTheLastOfUs = listaJogoJson.get(2)
 
-    println(gamerAna)
-    println(jogoResidentEvilVillage)
+//    println(gamerAna)
+//    println(jogoResidentEvilVillage)
 
 
     val periodo = Periodo(LocalDate.now(), LocalDate.now().plusDays(7))
@@ -32,6 +33,14 @@ fun main() {
     gamerAna.alugaJogo(jogoSpider, periodo4)
 
     println(gamerAna.jogoAlugados)
-    println(gamerAna.jogosDoMes(9))
+//    println(gamerAna.jogosDoMes(9))
 
+    val gamerCamila  = listaGamers.get(5)
+    gamerCamila.plano = PlanoAssinatura("PRATA", 9.90, 3)
+
+    gamerCamila.alugaJogo(jogoResidentEvilVillage, periodo)
+    gamerCamila.alugaJogo(jogoSpider, periodo1)
+    gamerCamila.alugaJogo(jogoTheLastOfUs, periodo2)
+    gamerCamila.alugaJogo(jogoTheLastOfUs, periodo2)
+    println(gamerCamila.jogoAlugados)
 }
