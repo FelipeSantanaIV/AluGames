@@ -10,6 +10,6 @@ data class Aluguel(
 
     val valorDoAlugel = gamer.plano.obterValor(this)
     override fun toString(): String {
-        return "Aluguel do ${jogo.titulo} por ${gamer.nome}, pelo valor de R$$valorDoAlugel"
+        return "Aluguel do ${jogo.titulo} por ${gamer.nome}, pelo valor de R$${"%.2f".format(valorDoAlugel)}"
     }
 }

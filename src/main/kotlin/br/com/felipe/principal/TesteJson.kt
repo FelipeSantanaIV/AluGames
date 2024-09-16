@@ -5,6 +5,7 @@ import br.com.felipe.modelo.PlanoAssinatura
 import br.com.felipe.servicos.ConsumoApi
 import com.google.gson.GsonBuilder
 import java.io.File
+import java.math.BigDecimal
 import java.time.LocalDate
 
 fun main() {
@@ -38,7 +39,7 @@ fun main() {
 //    println(gamerAna.jogosDoMes(9))
 
     val gamerCamila  = listaGamers.get(5)
-    gamerCamila.plano = PlanoAssinatura("PRATA", 9.90, 3, 0.15)
+    gamerCamila.plano = PlanoAssinatura("PRATA", 9.90, 3, BigDecimal("0.15"))
 
     gamerCamila.alugaJogo(jogoResidentEvilVillage, periodo)
     gamerCamila.alugaJogo(jogoSpider, periodo1)
@@ -49,10 +50,10 @@ fun main() {
     gamerCamila.recomendar(8)
     gamerCamila.recomendar(10)
     gamerCamila.recomendar(8)
-//    println(gamerCamila)
+    println(gamerCamila)
 
     gamerCamila.alugaJogo(jogoResidentEvilVillage, periodo)
-//    println(gamerCamila.jogoAlugados)
+    println(gamerCamila.jogoAlugados)
 
     gamerCamila.recomendarJogo(jogoResidentEvilVillage, 7)
     gamerCamila.recomendarJogo(jogoTheLastOfUs, 10)
