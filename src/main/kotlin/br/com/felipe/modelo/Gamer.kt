@@ -13,6 +13,7 @@ data class Gamer(var nome: String, var email: String): Recomendavel {
                 criarIdInterno()
             }
         }
+    var id = 0
     var idInterno: String? = null
         private set
     var plano: Plano = PlanoAvulso("BRONZE")

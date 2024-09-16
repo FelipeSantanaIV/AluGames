@@ -14,68 +14,57 @@ fun main() {
     val listaJogoJson = consumo.buscaJogosJson()
 
 //    println(listaGamers)
-//    println(listaJogoJson)
-
-    val gamerAna = listaGamers.get(1)
-    val jogoResidentEvilVillage = listaJogoJson.get(10)
-    val jogoSpider = listaJogoJson.get(13)
-    val jogoTheLastOfUs = listaJogoJson.get(2)
-
-//    println(gamerAna)
-//    println(jogoResidentEvilVillage)
-
-
-    val periodo = Periodo(LocalDate.now(), LocalDate.now().plusDays(7))
-    val periodo1 = Periodo(LocalDate.now(), LocalDate.now().plusDays(3))
-    val periodo2 = Periodo(LocalDate.now(), LocalDate.now().plusDays(10))
-    val periodo4 = Periodo(LocalDate.of(2024,8,2), LocalDate.of(2024,8,15))
-
-    gamerAna.alugaJogo(jogoResidentEvilVillage, periodo)
-    gamerAna.alugaJogo(jogoSpider, periodo1)
-    gamerAna.alugaJogo(jogoTheLastOfUs, periodo2)
-    gamerAna.alugaJogo(jogoSpider, periodo4)
-
-    println(gamerAna.jogoAlugados)
-//    println(gamerAna.jogosDoMes(9))
-
-    val gamerCamila  = listaGamers.get(5)
-    gamerCamila.plano = PlanoAssinatura("PRATA", 9.90, 3, BigDecimal("0.15"))
-
-    gamerCamila.alugaJogo(jogoResidentEvilVillage, periodo)
-    gamerCamila.alugaJogo(jogoSpider, periodo1)
-    gamerCamila.alugaJogo(jogoTheLastOfUs, periodo2)
-    gamerCamila.alugaJogo(jogoTheLastOfUs, periodo2)
-//    println(gamerCamila.jogoAlugados)
-
-    gamerCamila.recomendar(8)
-    gamerCamila.recomendar(10)
-    gamerCamila.recomendar(8)
-    println(gamerCamila)
-
-    gamerCamila.alugaJogo(jogoResidentEvilVillage, periodo)
-    println(gamerCamila.jogoAlugados)
-
-    gamerCamila.recomendarJogo(jogoResidentEvilVillage, 7)
-    gamerCamila.recomendarJogo(jogoTheLastOfUs, 10)
-
-    gamerAna.recomendarJogo(jogoResidentEvilVillage, 8)
-    gamerAna.recomendarJogo(jogoTheLastOfUs, 9)
-
-    println("Recomendações da Camila: ")
-    println(gamerCamila.jogosRecomendados)
-
-    println("------------------------------------------------------------")
-
-    println("Recomendações da Ana: ")
-    println(gamerAna.jogosRecomendados)
+//    print(listaJogosJson)
 
     val gamerCaroline = listaGamers.get(3)
     val jogoResidentVillage = listaJogoJson.get(10)
+    val jogoSpider = listaJogoJson.get(13)
+    val jogoTheLastOfUs = listaJogoJson.get(2)
     val jogoDandara = listaJogoJson.get(5)
     val jogoAssassins = listaJogoJson.get(4)
     val jogoCyber = listaJogoJson.get(6)
     val jogoGod = listaJogoJson.get(7)
     val jogoSkyrim = listaJogoJson.get(18)
+
+//    println(gamerCaroline)
+//    println(jogoResidentVillage)
+
+    val periodo1 = Periodo(LocalDate.now(), LocalDate.now().plusDays(7))
+    val periodo2 = Periodo(LocalDate.now(), LocalDate.now().plusDays(3))
+    val periodo3 = Periodo(LocalDate.now(), LocalDate.now().plusDays(10))
+
+    gamerCaroline.alugaJogo(jogoResidentVillage, periodo1)
+    gamerCaroline.alugaJogo(jogoSpider, periodo2)
+    gamerCaroline.alugaJogo(jogoTheLastOfUs, periodo3)
+//    println(gamerCaroline.jogosAlugados)
+
+    val gamerCamila = listaGamers.get(5)
+    gamerCamila.plano = PlanoAssinatura("PRATA", 9.90, 3, 0.15)
+
+    gamerCamila.alugaJogo(jogoResidentVillage, periodo1)
+    gamerCamila.alugaJogo(jogoSpider, periodo2)
+    gamerCamila.alugaJogo(jogoTheLastOfUs, periodo3)
+    gamerCamila.alugaJogo(jogoTheLastOfUs, periodo3)
+//    println(gamerCamila.jogosAlugados)
+
+    gamerCamila.recomendar(7)
+    gamerCamila.recomendar(10)
+    gamerCamila.recomendar(8)
+//    println(gamerCamila)
+
+    gamerCamila.alugaJogo(jogoResidentVillage, periodo1)
+//    println(gamerCamila.jogosAlugados)
+
+    gamerCamila.recomendarJogo(jogoResidentVillage, 7)
+    gamerCamila.recomendarJogo(jogoTheLastOfUs, 10)
+
+    gamerCaroline.recomendarJogo(jogoResidentVillage, 8)
+    gamerCaroline.recomendarJogo(jogoTheLastOfUs, 9)
+
+    println("Recomendações da Camila")
+    println(gamerCamila.jogosRecomendados)
+    println("Recomendações da Caroline")
+    println(gamerCaroline.jogosRecomendados)
 
     gamerCamila.recomendarJogo(jogoResidentVillage, 7)
     gamerCamila.recomendarJogo(jogoTheLastOfUs, 10)
