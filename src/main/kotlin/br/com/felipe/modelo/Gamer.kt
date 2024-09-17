@@ -38,10 +38,11 @@ data class Gamer(var nome: String, var email: String): Recomendavel {
         jogosRecomendados.add(jogo)
     }
 
-    constructor(nome: String, email: String, dataNascimento: String?, usuario: String?) :
+    constructor(nome: String, email: String, dataNascimento: String?, usuario: String?, id: Int = 0) :
             this(nome, email) {
         this.dataNascimento = dataNascimento
         this.usuario = usuario
+        this.id = id
         criarIdInterno()
     }
 
@@ -59,7 +60,9 @@ data class Gamer(var nome: String, var email: String): Recomendavel {
                 "Data Nascimento: $dataNascimento\n" +
                 "Usuario: $usuario\n" +
                 "IdInterno: $idInterno\n" +
-                "Reputação: ${"%.2f".format(media)}"
+                "Reputação: ${"%.2f".format(media)}\n" +
+                "Id: $id\n" +
+                "Plano: ${plano.tipo}"
     }
 
     fun criarIdInterno() {
