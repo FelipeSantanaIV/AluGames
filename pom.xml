@@ -12,7 +12,11 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <kotlin.code.style>official</kotlin.code.style>
         <kotlin.compiler.jvmTarget>1.8</kotlin.compiler.jvmTarget>
+        <db.user>${env.DB_USER}</db.user>
+        <db.password>${env.DB_PASSWORD}</db.password>
     </properties>
+
+
 
     <repositories>
         <repository>
@@ -101,6 +105,11 @@
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.28</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>5.5.7.Final</version>
         </dependency>
     </dependencies>
 

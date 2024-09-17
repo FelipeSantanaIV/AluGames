@@ -1,7 +1,6 @@
 package br.com.felipe.modelo
 
 import com.google.gson.annotations.Expose
-import java.math.BigDecimal
 
 data class Jogo (@Expose val titulo:String,
             @Expose val capa:String ): Recomendavel {
@@ -18,7 +17,7 @@ data class Jogo (@Expose val titulo:String,
     }
 
 
-    constructor(titulo: String, capa: String, preco:Double, descricao:String, id:Int = 0) :
+    constructor(titulo: String, capa: String, preco:Double, descricao: String?, id:Int = 0) :
             this(titulo, capa){
                 this.preco = preco
                 this.descricao = descricao

@@ -1,6 +1,5 @@
 package br.com.felipe.modelo
 
-import java.time.LocalDate
 import java.util.Scanner
 import kotlin.random.Random
 
@@ -39,7 +38,7 @@ data class Gamer(var nome: String, var email: String): Recomendavel {
         jogosRecomendados.add(jogo)
     }
 
-    constructor(nome: String, email: String, dataNascimento: String, usuario: String) :
+    constructor(nome: String, email: String, dataNascimento: String?, usuario: String?) :
             this(nome, email) {
         this.dataNascimento = dataNascimento
         this.usuario = usuario
